@@ -42,8 +42,8 @@ def transy(y):
 
 if __name__ == '__main__':
 
-    model = load_model('model.hdf5')
-    testdataset = pd.read_csv('test.csv')
+    model = load_model('model/model.hdf5')
+    testdataset = pd.read_csv('data/test.csv')
 
     columns = testdataset.columns[12:len(testdataset.columns)-1].tolist()
     for c in columns:
