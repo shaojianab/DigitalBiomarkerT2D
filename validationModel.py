@@ -34,8 +34,8 @@ def transy(y):
 
 if __name__ == '__main__':
 
-    model = load_model('/Users/ryan/Documents/MyStudy/CGM_diabetes_classification/model/model.hdf5')
-    dataset = pd.read_csv('/Users/ryan/Documents/MyStudy/CGM_diabetes_classification/dataset/validationDataset.csv')
+    model = load_model('model.hdf5')
+    dataset = pd.read_csv('validationDataset.csv')
     X_test = dataset[dataset.columns[2:len(dataset.columns)-1]].values
     y_test = dataset['98'].values
     y_test_noresh = transy(y_test)
