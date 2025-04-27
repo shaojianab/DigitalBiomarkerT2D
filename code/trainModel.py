@@ -317,26 +317,4 @@ if __name__ == '__main__':
     fpr, tpr, thresholds = metrics.roc_curve(y_test_noresh[:,1], test_predict_prob[:,1], pos_label=1)
     print(metrics.auc(fpr, tpr))
     print(crdict)
-    
-    my_dataset = pd.read_csv('data/validation.csv')
 
-    my_train = my_dataset[my_dataset.columns[2:len(my_dataset.columns)-1]].values
-    my_y_train = my_dataset['98'].values
-
-    my_y_train = transy(my_y_train)
-
-    my_train = my_train.reshape((my_train.shape[0],  my_train.shape[1], 1))
-
-    my_test_prob = model.predict(my_train)
-    my_test_predict=(np.asarray(my_test_prob)).round()
-    my_test_predict = my_test_predict.reshape((my_test_predict.shape[0],  my_test_predict.shape[2]))
-    
-    my_test_prob = my_test_prob.reshape((my_test_prob.shape[0],  my_test_prob.shape[2]))
-    
-    target_names = ['normal', 'diabetes']
-    crdict = classification_report(my_y_train, my_test_predict,target_names=target_names)
-    my_fpr, my_tpr, my_thresholds = metrics.roc_curve(my_y_train[:,1], my_test_prob[:,1], pos_label=1)
-    print(metrics.auc(my_fpr, my_tpr))    
-    print(crdict)
-  
-    history.loss_plot('epoch')
