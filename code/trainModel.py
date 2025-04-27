@@ -232,9 +232,9 @@ def transy(y):
     
 
 if __name__ == '__main__':
-    traindataset = pd.read_csv('train.csv')
-    devdataset = pd.read_csv('dev.csv')
-    testdataset = pd.read_csv('test.csv')
+    traindataset = pd.read_csv('data/train.csv')
+    devdataset = pd.read_csv('data/dev.csv')
+    testdataset = pd.read_csv('data/test.csv')
     
     columns = traindataset.columns[12:len(traindataset.columns)-1].tolist()
     for c in columns:
@@ -318,7 +318,7 @@ if __name__ == '__main__':
     print(metrics.auc(fpr, tpr))
     print(crdict)
     
-    my_dataset = pd.read_csv('/home/ryan/cgm_classification_diabetes/dataset/dataset_diabetes_classification_day.csv')
+    my_dataset = pd.read_csv('data/validation.csv')
 
     my_train = my_dataset[my_dataset.columns[2:len(my_dataset.columns)-1]].values
     my_y_train = my_dataset['98'].values
